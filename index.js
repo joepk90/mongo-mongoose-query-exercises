@@ -22,16 +22,11 @@ async function getCourses() {
 
     const courses = await Course
 
-    // solution 1
-    // .find({ isPublished: true, tags: {$in: ['frontend', 'backend'] } })
+    .find({ isPublished: true })
+    .or([ { price: { $gte: 15 } }, { name: /.*by.*/i } ])
 
-    // solution 2
-    .find({ isPublished: true, }) // isPublished can be used here or in the .and method
-    .or([ { tags: 'backend'}, { tags: 'frontend'} ])
-    // .and({ isPublished: true, }) // isPublished can be used here or in the .find method
-
-    .sort({ price: -1 })
-    .select({ name: 1, author: 1, price: 1 });
+    // .sort({ price: -1 })
+    // .select({ name: 1, author: 1, price: 1 });
  
     console.log(courses);
 
