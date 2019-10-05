@@ -1,3 +1,6 @@
+// first import the exercise-data.json file to mongodb:
+// mongoimport --db mongo-exercises --collection courses --drop --file exercise-data.json --jsonArray
+
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongo-exercises')
