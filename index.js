@@ -39,4 +39,34 @@ async function getCourses() {
 
 };
 
-getCourses();
+// getCourses();
+
+
+async function updateCourse(id) {
+
+    // approach: query first
+    // modify object properties
+    // save object
+    const course = await Course.findById(id);
+
+    if (!course) return; 
+    console.log('test2');
+
+    course.isPublished = true;
+    course.author = 'Another Author';
+
+    // course.set({
+    //     isPublished: true,
+    //     author: 'Another Author'
+    // });
+
+    const result = await course.save();
+    console.log(result);
+
+    // approach: update first
+    // update directly
+    // optionally: get the updated document
+
+}
+
+updateCourse("5d988453960366b7c20c5abb");
