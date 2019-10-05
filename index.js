@@ -1,6 +1,10 @@
 // first import the exercise-data.json file to mongodb:
 // mongoimport --db mongo-exercises --collection courses --drop --file exercise-data.json --jsonArray
 
+// note: remove the _id field as it won't be imported correctly. or update it to use ObjectId (untested)
+// google search: mongoimport _id is not an ObjectId
+// https://stackoverflow.com/questions/51439955/mongoimport-id-is-not-an-objectid
+
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongo-exercises')
